@@ -1,0 +1,66 @@
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.CVFormPage"
+             Title="Create Your CV">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Label Text="CV Form" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" />
+
+            <!-- Nombre -->
+            <Label Text="Full Name:" />
+            <Entry Placeholder="Enter your full name" x:Name="NameEntry" />
+
+            <!-- Email -->
+            <Label Text="Email:" />
+            <Entry Placeholder="Enter your email" x:Name="EmailEntry" Keyboard="Email" />
+
+            <!-- Teléfono -->
+            <Label Text="Phone:" />
+            <Entry Placeholder="Enter your phone number" x:Name="PhoneEntry" Keyboard="Telephone" />
+
+            <!-- Dirección -->
+            <Label Text="Address:" />
+            <Entry Placeholder="Enter your address" x:Name="AddressEntry" />
+
+            <!-- Habilidades -->
+            <Label Text="Skills:" />
+            <Editor Placeholder="List your skills (e.g., Java, Python, Communication)" x:Name="SkillsEditor" HeightRequest="100" />
+
+            <!-- Experiencia laboral -->
+            <Label Text="Work Experience:" />
+            <Editor Placeholder="Describe your work experience" x:Name="ExperienceEditor" HeightRequest="150" />
+
+            <!-- Botón para redirigir -->
+            <Button Text="Generate CV" BackgroundColor="Blue" TextColor="White" Clicked="OnGenerateCVClicked" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
+
+
+using Xamarin.Forms;
+
+namespace MyApp
+{
+    public partial class CVFormPage : ContentPage
+    {
+        public CVFormPage()
+        {
+            InitializeComponent();
+        }
+
+        private async void OnGenerateCVClicked(object sender, EventArgs e)
+        {
+            // Recopilar datos del formulario
+            var name = NameEntry.Text;
+            var email = EmailEntry.Text;
+            var phone = PhoneEntry.Text;
+            var address = AddressEntry.Text;
+            var skills = SkillsEditor.Text;
+            var experience = ExperienceEditor.Text;
+
+            // Navegar a la página de visualización del CV
+            await Navigation.PushAsync(new CVDisplayPage(name, email, phone, address, skills, experience));
+        }
+    }
+}

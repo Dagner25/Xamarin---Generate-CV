@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.CVDisplayPage"
+             Title="Your CV">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Label Text="Your CV" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" />
+
+            <!-- Información del CV -->
+            <Label Text="Name:" FontAttributes="Bold" />
+            <Label x:Name="NameLabel" />
+
+            <Label Text="Email:" FontAttributes="Bold" />
+            <Label x:Name="EmailLabel" />
+
+            <Label Text="Phone:" FontAttributes="Bold" />
+            <Label x:Name="PhoneLabel" />
+
+            <Label Text="Address:" FontAttributes="Bold" />
+            <Label x:Name="AddressLabel" />
+
+            <Label Text="Skills:" FontAttributes="Bold" />
+            <Label x:Name="SkillsLabel" />
+
+            <Label Text="Work Experience:" FontAttributes="Bold" />
+            <Label x:Name="ExperienceLabel" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
